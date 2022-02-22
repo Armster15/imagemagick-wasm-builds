@@ -1,10 +1,9 @@
 const webpack = require("webpack");
 const path = require("path");
 const TerserPlugin = require("terser-webpack-plugin");
-const {merge} = require("webpack-merge");
+const { merge } = require("webpack-merge");
 
 const IS_DEV = process.env.NODE_ENV === "development";
-
 
 const base = {
   entry: path.resolve(__dirname, "./src/", "index.ts"),
@@ -25,10 +24,34 @@ const base = {
     fallback: {
       fs: false,
       child_process: false,
-      crypto: require.resolve("crypto-browserify"),
-      path: require.resolve("path-browserify"),
-      stream: require.resolve("stream-browserify"),
-      buffer: require.resolve("buffer/"),
+      assert: "assert",
+      buffer: "buffer",
+      console: "console-browserify",
+      constants: "constants-browserify",
+      crypto: "crypto-browserify",
+      domain: "domain-browser",
+      events: "events",
+      http: "stream-http",
+      https: "https-browserify",
+      os: "os-browserify/browser",
+      path: "path-browserify",
+      punycode: "punycode",
+      process: "process/browser",
+      querystring: "querystring-es3",
+      stream: "stream-browserify",
+      _stream_duplex: "readable-stream/duplex",
+      _stream_passthrough: "readable-stream/passthrough",
+      _stream_readable: "readable-stream/readable",
+      _stream_transform: "readable-stream/transform",
+      _stream_writable: "readable-stream/writable",
+      string_decoder: "string_decoder",
+      sys: "util",
+      timers: "timers-browserify",
+      tty: "tty-browserify",
+      url: "url",
+      util: "util",
+      vm: "vm-browserify",
+      zlib: "browserify-zlib",
     },
   },
   module: {
@@ -61,19 +84,19 @@ module.exports = [
       library: {
         name: "ImageMagick",
         type: "umd",
-        umdNamedDefine: true  
+        umdNamedDefine: true,
       },
-    }
+    },
   }),
   merge(base, {
     output: {
       filename: "imagemagick.esm.js",
       library: {
-        type: "module"
-      }
+        type: "module",
+      },
     },
     experiments: {
       outputModule: true,
     },
-  })
-]
+  }),
+];
