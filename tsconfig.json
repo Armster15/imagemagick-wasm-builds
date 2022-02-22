@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "strict": true,
+    "baseUrl": ".",
+    "allowJs": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "declaration": true,
+    "module": "esnext",
+    "target": "ES2016",
+    "skipLibCheck": true,
+    "lib": ["ES6", "DOM"],
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "importsNotUsedAsValues": "preserve",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["node_modules/@types", "src/@types"],
+    "paths": {
+      "@/*": ["src/*"]
+    },
+  },
+  "include": ["./src/*"],
+  "exclude": ["node_modules"]
+}
