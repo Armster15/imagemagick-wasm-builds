@@ -1,0 +1,34 @@
+name: rebuild
+on:
+  schedule:
+    # At 00:00 on Friday
+    - cron: "0 0 * * 5"
+  push:
+
+jobs:
+  rebuild-imagemagick:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      
+      - name: Install dependencies
+      - run: npm install
+
+      - name: Build WASM build
+      - run: npm run build
+
+      - name: Commit changes
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Auto update ImageMagick build
+      
+      - name: "Run if changes have been detected"
+        if: steps.auto-commit-action.outputs.changes_detected == 'true'
+        run: echo "Changes!"
+
+      - name: "Run if no changes have been detected"
+        if: steps.auto-commit-action.outputs.changes_detected == 'false'
+       run: echo "No Changes!"
