@@ -1,6 +1,6 @@
 name: rebuild
 
-permissions: read-all|write-all
+permissions: write-all
 
 on:
   schedule:
