@@ -1,4 +1,7 @@
 name: rebuild
+
+permissions: read-all|write-all
+
 on:
   schedule:
     # At 00:00 on Friday
