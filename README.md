@@ -1,3 +1,7 @@
+# ⚠️ UPDATE
+**If you are using Vite and struggling to compile @imagemagick/magick-wasm, [a workaround
+has been found.](https://github.com/dlemstra/magick-wasm/issues/41#issuecomment-1113181679)**
+
 # imagemagick-wasm-builds
 Standalone pre built [@imagemagick/magick-wasm](https://github.com/dlemstra/magick-wasm) files
 
